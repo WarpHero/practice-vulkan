@@ -291,7 +291,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     VK_CHECK_ERROR(vkCreateCommandPool(mDevice, &commandPoolCreateInfo, nullptr, &mCommandPool));
 
     // ================================================================================
-    // 6. VkCommandBuffer 할당
+    // 7. VkCommandBuffer 할당
     // ================================================================================
     VkCommandBufferAllocateInfo commandBufferAllocateInfo{
         .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
@@ -303,7 +303,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     VK_CHECK_ERROR(vkAllocateCommandBuffers(mDevice, &commandBufferAllocateInfo, &mCommandBuffer));
 
     // ================================================================================
-    // 7. VkCommandBuffer 기록 시작
+    // 8. VkCommandBuffer 기록 시작
     // ================================================================================
     VkCommandBufferBeginInfo commandBufferBeginInfo{
         .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
@@ -314,7 +314,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
 
     for (auto swapchainImage: mSwapchainImages) {
         // ================================================================================
-        // 10. VkImageLayout 변환
+        // 9. VkImageLayout 변환
         // ================================================================================
         VkImageMemoryBarrier imageMemoryBarrierForPresentSwapchainImage{
             .sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
@@ -347,12 +347,12 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     }
 
     // ================================================================================
-    // 11. VkCommandBuffer 기록 종료
+    // 10. VkCommandBuffer 기록 종료
     // ================================================================================
     VK_CHECK_ERROR(vkEndCommandBuffer(mCommandBuffer));
 
     // ================================================================================
-    // 12. VkCommandBuffer 제출
+    // 11. VkCommandBuffer 제출
     // ================================================================================
     VkSubmitInfo submitInfo{
         .sType = VK_STRUCTURE_TYPE_SUBMIT_INFO,
@@ -364,7 +364,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     VK_CHECK_ERROR(vkQueueWaitIdle(mQueue));
 
     // ================================================================================
-    // 13. VkFence 생성
+    // 12. VkFence 생성
     // ================================================================================
     VkFenceCreateInfo fenceCreateInfo{
         .sType = VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
@@ -418,7 +418,7 @@ void VkRenderer::render() {
     vkResetCommandBuffer(mCommandBuffer, 0);
 
     // ================================================================================
-    // 8. VkCommandBuffer 기록 시작
+    // 4. VkCommandBuffer 기록 시작
     // ================================================================================
     VkCommandBufferBeginInfo commandBufferBeginInfo{
         .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
@@ -428,7 +428,7 @@ void VkRenderer::render() {
     VK_CHECK_ERROR(vkBeginCommandBuffer(mCommandBuffer, &commandBufferBeginInfo));
 
     // ================================================================================
-    // 9. VkImageLayout 변환
+    // 5. VkImageLayout 변환
     // ================================================================================
     VkImageMemoryBarrier imageMemoryBarrierForClearColorImage{
         .sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
@@ -460,14 +460,14 @@ void VkRenderer::render() {
                          &imageMemoryBarrierForClearColorImage);
 
     // ================================================================================
-    // 10. Clear 색상 갱신
+    // 6. Clear 색상 갱신
     // ================================================================================
     for (auto i = 0; i != 4; ++i) {
         mClearColorValue.float32[i] = fmodf(mClearColorValue.float32[i] + 0.01, 1.0);
     }
 
     // ================================================================================
-    // 11. VkImage 색상 초기화
+    // 7. VkImage 색상 초기화
     // ================================================================================
     VkImageSubresourceRange imageSubresourceRange{
         .aspectMask = VK_IMAGE_ASPECT_COLOR_BIT,
@@ -485,7 +485,7 @@ void VkRenderer::render() {
                          &imageSubresourceRange);
 
     // ================================================================================
-    // 12. VkImageLayout 변환
+    // 8. VkImageLayout 변환
     // ================================================================================
     VkImageMemoryBarrier imageMemoryBarrierForPresentSwapchainImage{
         .sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
