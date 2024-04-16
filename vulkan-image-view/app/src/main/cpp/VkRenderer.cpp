@@ -404,7 +404,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     VK_CHECK_ERROR(vkCreateFence(mDevice, &fenceCreateInfo, nullptr, &mFence));
 
     // ================================================================================
-    // 14. Semaphore 생성
+    // 14. VkSemaphore 생성
     // ================================================================================
     VkSemaphoreCreateInfo semaphoreCreateInfo{
         .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,

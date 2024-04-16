@@ -404,7 +404,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     VK_CHECK_ERROR(vkCreateFence(mDevice, &fenceCreateInfo, nullptr, &mFence));
 
     // ================================================================================
-    // 14. Semaphore 생성
+    // 14. VkSemaphore 생성
     // ================================================================================
     VkSemaphoreCreateInfo semaphoreCreateInfo{
         .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
@@ -413,7 +413,7 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     VK_CHECK_ERROR(vkCreateSemaphore(mDevice, &semaphoreCreateInfo, nullptr, &mSemaphore));
 
     // ================================================================================
-    // 15. Semaphore 생성
+    // 15. VkRenderPass 생성
     // ================================================================================
     VkAttachmentDescription attachmentDescription{
         .format = surfaceFormats[surfaceFormatIndex].format,
