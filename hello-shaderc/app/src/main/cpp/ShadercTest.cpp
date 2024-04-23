@@ -37,8 +37,9 @@ TEST(shaderc, compile) {
     shaderc::CompileOptions options;
     auto result = compiler.CompileGlslToSpvAssembly(
         code.data(), code.size(), shaderc_vertex_shader, "test", options);
-    std::string spv(result.cbegin(), result.cend());
+    EXPECT_EQ(result.GetCompilationStatus(), shaderc_compilation_status_success);
 
+    std::string spv(result.cbegin(), result.cend());
     std::istringstream iss(spv);
     std::string header;
     std::getline(iss, header);
