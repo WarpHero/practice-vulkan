@@ -173,7 +173,7 @@ vkCompileShader(std::string_view shaderCode, VkShaderType shaderType,
 
     if (result.GetCompilationStatus() != shaderc_compilation_status_success) {
         aout << result.GetErrorMessage() << std::endl;
-        return VK_INCOMPLETE;
+        return VK_ERROR_UNKNOWN;
     }
 
     *shaderBinary = std::vector(result.cbegin(), result.cend());
