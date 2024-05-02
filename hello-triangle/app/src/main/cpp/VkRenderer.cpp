@@ -649,11 +649,11 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
             .color{0.0, 0.0, 1.0}
         },
     };
-    constexpr VkDeviceSize verticesSize{vertices.size() * sizeof(Vertex)};
+    constexpr VkDeviceSize vertexDataSize{vertices.size() * sizeof(Vertex)};
 
     VkBufferCreateInfo vertexBufferCreateInfo{
         .sType =VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
-        .size = verticesSize,
+        .size = vertexDataSize,
         .usage = VK_BUFFER_USAGE_VERTEX_BUFFER_BIT
     };
 
@@ -694,9 +694,9 @@ VkRenderer::VkRenderer(ANativeWindow *window) {
     // ================================================================================
     // 23. Vertex 데이터 복사
     // ================================================================================
-    void* verticesData;
-    VK_CHECK_ERROR(vkMapMemory(mDevice, mVertexMemory, 0, verticesSize, 0, &verticesData));
-    memcpy(verticesData, vertices.data(), verticesSize);
+    void* vertexData;
+    VK_CHECK_ERROR(vkMapMemory(mDevice, mVertexMemory, 0, vertexDataSize, 0, &vertexData));
+    memcpy(vertexData, vertices.data(), vertexDataSize);
     vkUnmapMemory(mDevice, mVertexMemory);
 }
 
