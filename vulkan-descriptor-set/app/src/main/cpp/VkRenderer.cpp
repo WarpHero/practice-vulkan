@@ -884,5 +884,5 @@ void VkRenderer::render() {
         .pImageIndices = &swapchainImageIndex
     };
 
-    VK_CHECK_ERROR(vkQueuePresentKHR(mQueue, &presentInfo));
+
 }

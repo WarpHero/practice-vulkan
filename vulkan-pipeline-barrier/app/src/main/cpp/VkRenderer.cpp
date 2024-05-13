@@ -465,4 +465,5 @@ void VkRenderer::render() {
     };
 
     VK_CHECK_ERROR(vkQueuePresentKHR(mQueue, &presentInfo));
+    VK_CHECK_ERROR(vkQueueWaitIdle(mQueue));
 }
