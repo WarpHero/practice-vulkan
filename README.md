@@ -3,7 +3,7 @@
 # 반갑습니다! 🤗
 
 [![Vulkan](https://img.shields.io/badge/Vulkan-ac162c?style=for-the-badge&logo=vulkan)](https://https://www.vulkan.org)
-[![Inflearn](https://img.shields.io/badge/-Inflearn-brightgreen?style=for-the-badge)]()
+[![Inflearn](https://img.shields.io/badge/-Inflearn-brightgreen?style=for-the-badge)](https://inf.run/nJ4jK)
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/vRw6xDUPKA)
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/djang-88b01b91)
 
@@ -11,7 +11,7 @@
 
 ## 📖 개요
 
-이 저장소의 코드는 [삼각형의 실전! Vulkan 중급](https://inf.run/onod4) 강의를 위해서 생성되었습니다. \
+이 저장소의 코드는 [삼각형의 실전! Vulkan 중급](https://inf.run/nJ4jK) 강의를 위해서 생성되었습니다. \
 강의에서 코드에 대한 설명을 들을 수 있기 때문에 코드를 위한 설명은 별도로 제공하지 않습니다. \
 학생이거나 취준생이신 경우, 저에게 이메일을 보내주시면 **50%** 할인을 지원해 드리겠습니다.
 
